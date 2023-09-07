@@ -7,18 +7,23 @@ As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest numb
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.'''
 
 
-def d(n):
+def divisors(n):
     divisors = []
-    for x in range(1, n//2+1):
-        if n % x == 0:
-            divisors.append(x)
-    return sum(divisors)
+    for i in range(1, n//2+1):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
 
-
-def perfectN(n):
-    if d(n) == n:
-        return True
-
-
-ab = [i for i in range(28123) if d(i) > i]
-
+ab_numbers = []
+for i in range(1, 28123):
+    if sum(divisors(i)) > i:
+        ab_numbers.append(i)
+    
+    can = []
+    for n in range(1, 28123):
+        for a in ab_numbers:
+            for b in ab_numbers:
+                if n == a + b:
+                    can.append([a + b])
+        
+print(ab_numbers)

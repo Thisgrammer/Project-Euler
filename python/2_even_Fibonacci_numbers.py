@@ -7,7 +7,6 @@ k = 4000000
 a, b, sumF = 1, 2, 0
 while a < k or b < k:
     if a % 2 == 0: sumF += a
-    if b % 2 == 0 and b < k: sumF += b
     a, b = b, a + b 
 
 print(sumF)
