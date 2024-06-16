@@ -1,20 +1,21 @@
 #include <stdio.h>
 
-int main() {
+
+const int k = 1000;
+
+int sumMultiples(int n);
+
+int main () {
     int a = 3;
     int b = 5;
-    int sum_multiples = 0;
 
-    int k = 1000;
-    
-    int i;
-    for (i = 1; i < k; i++) {
-        if (i % a == 0 || i % b == 0) {
-            sum_multiples += i;
-        }
-    }
+    int sum = sumMultiples(a) + sumMultiples(b) - sumMultiples(a * b);
 
-    printf("%d\n", sum_multiples);
+    printf("%d", sum);
+}
 
-    return 0;
+
+int sumMultiples(int n) {
+    int p = (k - 1) / n;
+    return n * (p * (p + 1)) / 2;
 }

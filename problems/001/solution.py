@@ -1,11 +1,11 @@
-a = 3
-b = 5
-sum_multiples = 0
-
 k = 1000
 
-for i in range(1, k):
-    if i % a == 0 or i % b == 0:
-        sum_multiples += i
+def sumMultiples(n):
+    p = (k -1) // n
+    return n * (p * (p + 1)) // 2
 
-print(sum_multiples)
+
+a = 3
+b = 5
+
+print(sumMultiples(a) + sumMultiples(b) - sumMultiples(a * b))
